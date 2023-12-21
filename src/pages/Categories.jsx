@@ -1,7 +1,15 @@
+import Header from '../components/Header';
+import Banner from '../components/Banner';
+import Main from '../components/Main';
+import Footer from '../components/Footer';
+
 function Categories() {
     return (
         <div>
-            <h2>Categories</h2>
+            <Header />
+            <Banner />
+            <p>Categories</p>
+            <Footer />
         </div>
     );
 }
