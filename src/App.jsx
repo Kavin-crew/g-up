@@ -1,5 +1,6 @@
+import './scss/main.scss';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import Homepage from './pages/Homepage';
 import Categories from './pages/Categories';
 import Blog from './pages/Blog';
