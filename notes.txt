@@ -6,3 +6,25 @@ Material UI notes
 
 - component - example value will be h1 to h6, it will have same design but in html it will display the component as h1 for semantic html
 - gutterBottom - is usually false, but once included as attribute it will add margin-bottom
+
+2. Buttons - native anchor links
+    -variant attribute - text, contained, outline
+        - in using text varient, it will accept an href attribute to make it an anchor tag in the html
+    
+    - color attribute = primary, secondary, error, warning, info, success
+    - size attribute = small, medium, large
+    - disableElevation attribute
+    - disableRipple attribute
+    - onClick - usual onClick in react
+
+    ----------for icons------------
+    npm install @mui/icons-material
+    - startIcon = {<SendIcon/>}
+    - endIcon = {<SendIcon/>}
+
+2.1 IconButton - button that only have icons alone
+    <IconButton aria-label="send">
+        <SendIcon/>
+    </IconButton>
+
+3. Stack - attibutes = spacing, direction, display
