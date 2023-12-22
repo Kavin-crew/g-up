@@ -1,3 +1,8 @@
 Material UI notes
 1. Typography
-- variant attribute h1-h6
+- variant attribute = h1-h6
+- variant attribute = subtitle1 - subtitle2
+- variant attribute = body1 - body2 , body1 is the default variant of the Typography component
+
+- component - example value will be h1 to h6, it will have same design but in html it will display the component as h1 for semantic html
+- gutterBottom - is usually false, but once included as attribute it will add margin-bottom
