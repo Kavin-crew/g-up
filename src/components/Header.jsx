@@ -1,4 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
+import * as React from 'react';
+import { Button } from '@mui/material';
 
 function Header() {
     return (
@@ -22,7 +24,9 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-            <button className="btn btn--primary">Report a Number</button>
+            <Button variant="contained" sx={{ mt: 3, mb: 2 }}>
+                Report a Number
+            </Button>
         </header>
     );
 }
