@@ -8,7 +8,7 @@ function Loginpage() {
         <>
             <Header />
             <Banner />
-            <p>Loginpage</p>
+            {/* <p>Loginpage</p> */}
             <Footer />
         </>
     );

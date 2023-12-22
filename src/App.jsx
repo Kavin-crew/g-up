@@ -12,10 +12,10 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Homepage />} />
-                <Route path="categories" element={<Categories />} />
+                {/* <Route path="categories" element={<Categories />} />
                 <Route path="blog" element={<Blog />} />
                 <Route path="login" element={<Loginpage />} />
-                <Route path="*" element={<PageNotFound />} />
+                <Route path="*" element={<PageNotFound />} /> */}
             </Routes>
         </BrowserRouter>
     );

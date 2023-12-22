@@ -5,12 +5,12 @@ import Footer from '../components/Footer';
 
 function Categories() {
     return (
-        <div>
+        <>
             <Header />
             <Banner />
             <p>Categories</p>
             <Footer />
-        </div>
+        </>
     );
 }
 
