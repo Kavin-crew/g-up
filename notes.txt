@@ -28,3 +28,9 @@ Material UI notes
     </IconButton>
 
 3. Stack - attibutes = spacing, direction, display
+
+4. ButtonGroup - place all buttons inside the button ButtonGroup, u may add the props in this component instead of each buttons
+                EXCEPT for onClick
+    - advised to put a aria-label
+    - variant same as buttons
+    - orientation = vertical
