@@ -34,3 +34,25 @@ Material UI notes
     - advised to put a aria-label
     - variant same as buttons
     - orientation = vertical
+
+5. ToggleButtonGroup, ToggleButton
+    const [format, setFormat] = useState([]);
+
+    function handleFormatChange(e, updatedFormat){
+        setFormat(updatedFormat)
+    }
+
+    <ToggleButtonGroup 
+        aria-label="text formatting" 
+        value="format" 
+        onChange="handleFormatChange" 
+        size="small"
+        color="success"
+        orientation="vertical"
+        exclusive>
+        <ToggleButton value="bold" aria-label="bold">Button 1</ToggleButton>
+        <ToggleButton value="italic" aria-label="italic">Button 2</ToggleButton>
+        <ToggleButton value="underlined" aria-label="underlined">Button 3</ToggleButton>
+    </ToggleButtonGroup>
+
+    //exclusive props only allows 1 option to be active, make the state also a single value
