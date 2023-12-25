@@ -56,3 +56,30 @@ Material UI notes
     </ToggleButtonGroup>
 
     //exclusive props only allows 1 option to be active, make the state also a single value
+
+6. TextField - its like an input tag in html, by default variant is outlined
+    -variant attribute = outlined, filled, standard
+    -size = small, medium, large
+    -color = primary, or some color in the pallete
+    -required
+    -helperText = message that will display below the TextField
+    -type = Password, Email and so on
+    -inputProps = {{readOnly: true;}}
+
+6.1 InputAdornment - we can also add icon component for InputAdornment
+    const [value,setValue] = useState('')
+
+    <TextField name="Amount" inputProps={{
+        startAdornment: <InputAdornment position="start">$<InputAdornment/>
+    }}/>
+
+    <TextField name="Amount" inputProps={{
+        startAdornment: <InputAdornment position="end">kg<InputAdornment/>
+    }}/>
+
+    <TextField
+    type="Password"
+    value={value} 
+    onChange={e => setValue(e.target.value)
+    error={!value ? "Required" : "Do not share your password"}}
+    />
