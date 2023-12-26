@@ -83,3 +83,26 @@ Material UI notes
     onChange={e => setValue(e.target.value)
     error={!value ? "Required" : "Do not share your password"}}
     />
+
+7. Box - like a generic div tag
+7.1 Select - 
+7.2 MenuItem - 
+    const [country,setCountry] = useState('');
+
+    const handleCountry(e){
+        const value = e.target.value;
+        setCountry(typeof value === 'string' ? value.split(',') : value)
+
+    }
+
+    <TextField
+    label="Select Country"
+    select value="country"
+    onChange={handleCountry}
+    SelectProps={{
+        multiple: true
+    }}>
+        <MenuItem value="IN">India<MenuItem/>
+        <MenuItem value="SIN">Singapore<MenuItem/>
+        <MenuItem value="FR">France<MenuItem/>
+    <TextField/>
