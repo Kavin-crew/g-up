@@ -171,3 +171,22 @@ Material UI notes
     </FormGroup>
     <FormHelperText>Invalid selection</FormHelperText/>
     </FormControl>
+
+10. Switch - toggle like on/off - example is Dark Mode
+    <FormLabel label="Dark Mode" control={<Switch checked={value} onChange={e => e.target.value}/>}></FormLabel>
+
+11. Rating - star rating, it accept e and newValue
+    const handleChange(e, newValue){
+        setValue(newValue)
+    }
+    <Stack>
+        <Rating 
+        value={value} 
+        onChange={handleChange} 
+        precision="0.5"
+        icon={<FavoriteIcon fontSize="inherit"/>}
+        emptyIcon={<FavoriteBorderIcon fontSize="inherit"/>}
+        readOnly
+        highlightSelectedOnly
+        />
+    </Stack>
