@@ -124,3 +124,50 @@ Material UI notes
     </RadioGroup>
   </FormControl>
 </Box>;
+
+9. CheckBox Button
+    //single CheckBox
+    <Box>
+        <FormControlLabel
+        label="I accept terms and condition"
+        control={<CheckBox checked={value} onChange={e => setValue(e.target.checked)}/>}
+        >
+        </FormControlLabel>
+    </Box>
+
+    //checkbox icons
+    <Box>
+        <CheckBox 
+        icon={<BookmarkBoderIcon/>}
+        checkedIcon={<BookmarkIcon/>}
+        checked="value"
+        onChange={e => setValue(e.target.value)}
+        />
+    </Box>
+
+    //multiple checkbox
+    const handleCheck(e){
+    const index = skills.indexOf(e.target.value)
+
+    if(index === -1) setSkills([...skills, e.target.value])
+    else setSkills(skills.filter(skill => skill !== e.target.value))
+    }
+
+    <FormControl error>
+    <FormLabel>Skills</FormLabel>
+    <FormGroup>
+        <FormControlLabel
+        label="HTML"
+        control={<CheckBox checked={skills.includes('html')} value="HTML" onChange={handleCheck} />}
+        />
+        <FormControlLabel
+        label="CSS"
+        control={<CheckBox checked="" value="CSS" onChange={handleCheck} />}
+        />
+        <FormControlLabel
+        label="JavaScript"
+        control={<CheckBox checked="" value="JavaScript" onChange={handleCheck} />}
+        />
+    </FormGroup>
+    <FormHelperText>Invalid selection</FormHelperText/>
+    </FormControl>
