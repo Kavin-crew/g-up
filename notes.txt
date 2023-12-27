@@ -106,3 +106,21 @@ Material UI notes
         <MenuItem value="SIN">Singapore<MenuItem/>
         <MenuItem value="FR">France<MenuItem/>
     <TextField/>
+
+8. Radio Button
+<Box>
+  <FormControl>
+    <FormLabel id="job-experience-group-label">Years of experience</FormLabel>
+    <RadioGroup
+      name="job-experience-group"
+      aria-labelledby="job-experience-group-label"
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      row
+    >
+        <FormControlLabel control={<Radio size="small" color="primary"/>} label="0-2" value="0-2"/>
+        <FormControlLabel control={<Radio size="small" color="primary"/>} label="3-4" value="3-4"/>
+        <FormControlLabel control={<Radio size="small" color="primary"/>} label="5-10" value="5-10"/>
+    </RadioGroup>
+  </FormControl>
+</Box>;
