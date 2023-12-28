@@ -190,3 +190,13 @@ Material UI notes
         highlightSelectedOnly
         />
     </Stack>
+
+12. Autocomplete - its like a combobox
+    const skills = ['html', 'css', 'javascript', 'react']
+
+    <Autocomplete 
+    options={skills} 
+    renderInput={(params) => <TextField {...params} 
+    label={skills}/>}
+    freeSolo
+    />
