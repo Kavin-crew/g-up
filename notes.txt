@@ -1,20 +1,20 @@
 Material UI notes
 1. Typography
-- variant attribute = h1-h6
-- variant attribute = subtitle1 - subtitle2
-- variant attribute = body1 - body2 , body1 is the default variant of the Typography component
+- variant props = h1-h6
+- variant props = subtitle1 - subtitle2
+- variant props = body1 - body2 , body1 is the default variant of the Typography component
 
 - component - example value will be h1 to h6, it will have same design but in html it will display the component as h1 for semantic html
-- gutterBottom - is usually false, but once included as attribute it will add margin-bottom
+- gutterBottom - is usually false, but once included as props it will add margin-bottom
 
 2. Buttons - native anchor links
-    -variant attribute - text, contained, outline
-        - in using text varient, it will accept an href attribute to make it an anchor tag in the html
+    -variant props - text, contained, outline
+        - in using text varient, it will accept an href props to make it an anchor tag in the html
     
-    - color attribute = primary, secondary, error, warning, info, success
-    - size attribute = small, medium, large
-    - disableElevation attribute
-    - disableRipple attribute
+    - color props = primary, secondary, error, warning, info, success
+    - size props = small, medium, large
+    - disableElevation props
+    - disableRipple props
     - onClick - usual onClick in react
 
     ----------for icons------------
@@ -58,7 +58,7 @@ Material UI notes
     //exclusive props only allows 1 option to be active, make the state also a single value
 
 6. TextField - its like an input tag in html, by default variant is outlined
-    -variant attribute = outlined, filled, standard
+    -variant props = outlined, filled, standard
     -size = small, medium, large
     -color = primary, or some color in the pallete
     -required
@@ -85,6 +85,20 @@ Material UI notes
     />
 
 7. Box - like a generic div tag
+    component
+    props={span} 
+    bgcolor='success.light',
+    p={2} //2 means 16px
+    sx={{
+        backgroundColor: 'primary.main',
+        '&:hover': {
+            backgroundColor: 'primary.light'
+        }
+    }}
+    <Box
+
+    ></Box>
+
 7.1 Select - 
 7.2 MenuItem - 
     const [country,setCountry] = useState('');
