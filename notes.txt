@@ -1,11 +1,13 @@
 Material UI notes
-1. Typography
-- variant props = h1-h6
-- variant props = subtitle1 - subtitle2
-- variant props = body1 - body2 , body1 is the default variant of the Typography component
+https://www.youtube.com/playlist?list=PLC3y8-rFHvwh-K9mDlrrcDywl7CeVL2rO
 
-- component - example value will be h1 to h6, it will have same design but in html it will display the component as h1 for semantic html
-- gutterBottom - is usually false, but once included as props it will add margin-bottom
+1. Typography
+    - variant props = h1-h6
+    - variant props = subtitle1 - subtitle2
+    - variant props = body1 - body2 , body1 is the default variant of the Typography component
+
+    - component - example value will be h1 to h6, it will have same design but in html it will display the component as h1 for semantic html
+    - gutterBottom - is usually false, but once included as props it will add margin-bottom
 
 2. Buttons - native anchor links
     -variant props - text, contained, outline
@@ -27,117 +29,122 @@ Material UI notes
         <SendIcon/>
     </IconButton>
 
-3. Stack - attibutes = spacing, direction, display
+3. Stack - 1 dimentional, be default its in column direction
+    attibutes = spacing, direction, display
+    value of 1 is equivalent to 8px
+
+3.1 Divider - will add a line as divider
+    <Divider orientation="vertical" flexItem />
+
 
 4. ButtonGroup - place all buttons inside the button ButtonGroup, u may add the props in this component instead of each buttons
                 EXCEPT for onClick
-    - advised to put a aria-label
-    - variant same as buttons
-    - orientation = vertical
+                - advised to put a aria-label
+                - variant same as buttons
+                - orientation = vertical
 
 5. ToggleButtonGroup, ToggleButton
-    const [format, setFormat] = useState([]);
+        const [format, setFormat] = useState([]);
 
-    function handleFormatChange(e, updatedFormat){
-        setFormat(updatedFormat)
-    }
+        function handleFormatChange(e, updatedFormat){
+            setFormat(updatedFormat)
+        }
 
-    <ToggleButtonGroup 
-        aria-label="text formatting" 
-        value="format" 
-        onChange="handleFormatChange" 
-        size="small"
-        color="success"
-        orientation="vertical"
-        exclusive>
-        <ToggleButton value="bold" aria-label="bold">Button 1</ToggleButton>
-        <ToggleButton value="italic" aria-label="italic">Button 2</ToggleButton>
-        <ToggleButton value="underlined" aria-label="underlined">Button 3</ToggleButton>
-    </ToggleButtonGroup>
+        <ToggleButtonGroup 
+            aria-label="text formatting" 
+            value="format" 
+            onChange="handleFormatChange" 
+            size="small"
+            color="success"
+            orientation="vertical"
+            exclusive>
+            <ToggleButton value="bold" aria-label="bold">Button 1</ToggleButton>
+            <ToggleButton value="italic" aria-label="italic">Button 2</ToggleButton>
+            <ToggleButton value="underlined" aria-label="underlined">Button 3</ToggleButton>
+        </ToggleButtonGroup>
 
     //exclusive props only allows 1 option to be active, make the state also a single value
 
 6. TextField - its like an input tag in html, by default variant is outlined
-    -variant props = outlined, filled, standard
-    -size = small, medium, large
-    -color = primary, or some color in the pallete
-    -required
-    -helperText = message that will display below the TextField
-    -type = Password, Email and so on
-    -inputProps = {{readOnly: true;}}
+        -variant props = outlined, filled, standard
+        -size = small, medium, large
+        -color = primary, or some color in the pallete
+        -required
+        -helperText = message that will display below the TextField
+        -type = Password, Email and so on
+        -inputProps = {{readOnly: true;}}
 
 6.1 InputAdornment - we can also add icon component for InputAdornment
-    const [value,setValue] = useState('')
+        const [value,setValue] = useState('')
 
-    <TextField name="Amount" inputProps={{
-        startAdornment: <InputAdornment position="start">$<InputAdornment/>
-    }}/>
+        <TextField name="Amount" inputProps={{
+            startAdornment: <InputAdornment position="start">$<InputAdornment/>
+        }}/>
 
-    <TextField name="Amount" inputProps={{
-        startAdornment: <InputAdornment position="end">kg<InputAdornment/>
-    }}/>
+        <TextField name="Amount" inputProps={{
+            startAdornment: <InputAdornment position="end">kg<InputAdornment/>
+        }}/>
 
-    <TextField
-    type="Password"
-    value={value} 
-    onChange={e => setValue(e.target.value)
-    error={!value ? "Required" : "Do not share your password"}}
-    />
+        <TextField
+        type="Password"
+        value={value} 
+        onChange={e => setValue(e.target.value)
+        error={!value ? "Required" : "Do not share your password"}}
+        />
 
 7. Box - like a generic div tag
-    component
-    props={span} 
-    bgcolor='success.light',
-    p={2} //2 means 16px
-    sx={{
-        backgroundColor: 'primary.main',
-        '&:hover': {
-            backgroundColor: 'primary.light'
-        }
-    }}
-    <Box
-
-    ></Box>
+        <Box
+        component
+        props={span} 
+        bgcolor='success.light',
+        p={2} //2 means 16px
+        sx={{
+            backgroundColor: 'primary.main',
+            '&:hover': {
+                backgroundColor: 'primary.light'
+            }
+        }}
+        ></Box>
 
 7.1 Select - 
 7.2 MenuItem - 
-    const [country,setCountry] = useState('');
+        const [country,setCountry] = useState('');
 
-    const handleCountry(e){
-        const value = e.target.value;
-        setCountry(typeof value === 'string' ? value.split(',') : value)
+        const handleCountry(e){
+            const value = e.target.value;
+            setCountry(typeof value === 'string' ? value.split(',') : value)
 
-    }
+        }
 
-    <TextField
-    label="Select Country"
-    select value="country"
-    onChange={handleCountry}
-    SelectProps={{
-        multiple: true
-    }}>
-        <MenuItem value="IN">India<MenuItem/>
-        <MenuItem value="SIN">Singapore<MenuItem/>
-        <MenuItem value="FR">France<MenuItem/>
-    <TextField/>
+        <TextField
+        label="Select Country"
+        select value="country"
+        onChange={handleCountry}
+        SelectProps={{
+            multiple: true
+        }}>
+            <MenuItem value="IN">India<MenuItem/>
+            <MenuItem value="SIN">Singapore<MenuItem/>
+            <MenuItem value="FR">France<MenuItem/>
+        <TextField/>
 
 8. Radio Button
-<Box>
-  <FormControl>
-    <FormLabel id="job-experience-group-label">Years of experience</FormLabel>
-    <RadioGroup
-      name="job-experience-group"
-      aria-labelledby="job-experience-group-label"
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      row
-    >
-        <FormControlLabel control={<Radio size="small" color="primary"/>} label="0-2" value="0-2"/>
-        <FormControlLabel control={<Radio size="small" color="primary"/>} label="3-4" value="3-4"/>
-        <FormControlLabel control={<Radio size="small" color="primary"/>} label="5-10" value="5-10"/>
-    </RadioGroup>
-  </FormControl>
-</Box>;
+        <Box>
+        <FormControl>
+            <FormLabel id="job-experience-group-label">Years of experience</FormLabel>
+            <RadioGroup
+            name="job-experience-group"
+            aria-labelledby="job-experience-group-label"
+            value={value}
+            onChange={e => setValue(e.target.value)}
+            row
+            >
+                <FormControlLabel control={<Radio size="small" color="primary"/>} label="0-2" value="0-2"/>
+                <FormControlLabel control={<Radio size="small" color="primary"/>} label="3-4" value="3-4"/>
+                <FormControlLabel control={<Radio size="small" color="primary"/>} label="5-10" value="5-10"/>
+            </RadioGroup>
+        </FormControl>
+        </Box>;
 
 9. CheckBox Button
     //single CheckBox
@@ -187,23 +194,23 @@ Material UI notes
     </FormControl>
 
 10. Switch - toggle like on/off - example is Dark Mode
-    <FormLabel label="Dark Mode" control={<Switch checked={value} onChange={e => e.target.value}/>}></FormLabel>
+            <FormLabel label="Dark Mode" control={<Switch checked={value} onChange={e => e.target.value}/>}></FormLabel>
 
 11. Rating - star rating, it accept e and newValue
-    const handleChange(e, newValue){
-        setValue(newValue)
-    }
-    <Stack>
-        <Rating 
-        value={value} 
-        onChange={handleChange} 
-        precision="0.5"
-        icon={<FavoriteIcon fontSize="inherit"/>}
-        emptyIcon={<FavoriteBorderIcon fontSize="inherit"/>}
-        readOnly
-        highlightSelectedOnly
-        />
-    </Stack>
+            const handleChange(e, newValue){
+                setValue(newValue)
+            }
+            <Stack>
+                <Rating 
+                value={value} 
+                onChange={handleChange} 
+                precision="0.5"
+                icon={<FavoriteIcon fontSize="inherit"/>}
+                emptyIcon={<FavoriteBorderIcon fontSize="inherit"/>}
+                readOnly
+                highlightSelectedOnly
+                />
+            </Stack>
 
 12. Autocomplete - its like a combobox
     const skills = ['html', 'css', 'javascript', 'react']
@@ -214,3 +221,29 @@ Material UI notes
     label={skills}/>}
     freeSolo
     />
+
+13. Grid - 2 variation = grid container and grid item as children
+         - uses flexbox
+         - consist of 12 columns
+         - each item in the grid can take up one or more columns as its width
+         - five breakpoints = xs for mobile, sm for tablet, md for desktop, lg and lx for larger monitors
+         - can assign integer values to each breakpoint which indicates how many of the 12 available columns
+         example: xs='auto' occupy only its needed space line display inline-block
+
+        <Grid container spacing="2"> 
+        <Grid item xs={6}>
+            <Box>Item 1</Box>
+        </Grid>
+        <Grid item xs={6}>
+            <Box>Item 2</Box>
+        </Grid>
+        <Grid item xs={6}>
+            <Box>Item 3</Box>
+        </Grid>
+        <Grid item xs={6}>
+            <Box>Item 4</Box>
+        </Grid>
+        </Grid>
+
+14. Paper - used the card, like an login form w/ drop-shadow, has default backgroundColor white
+            <Paper sx={{padding: '32px'}} elevation={4}></Paper>
