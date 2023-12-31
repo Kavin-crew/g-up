@@ -1,0 +1,33 @@
+//============
+// Global styles
+//============
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+html {
+  font-size: 62.5%; //1rem = 10px
+
+  // @include respond('tab-land') {
+  //     font-size: 56.25%; //1rem = 9px
+  // }
+
+  // @include respond("tab-port") {
+  //   font-size: 50%; //1rem = 8px
+  // }
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: var(--default-line-height);
+  font-size: var(--default-font-size);
+  font-weight: var(--default-font-weight);
+
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  max-width: 130rem;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}

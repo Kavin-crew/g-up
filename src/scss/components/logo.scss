@@ -1,0 +1,12 @@
+.logo {
+    color: var(--color-white);
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 3.75rem */
+
+    transition: all 0.3s linear;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
