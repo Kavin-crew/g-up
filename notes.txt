@@ -272,3 +272,42 @@ https://www.youtube.com/playlist?list=PLC3y8-rFHvwh-K9mDlrrcDywl7CeVL2rO
     </Box>
 
 16. Accordion
+        const [expanded, setExpanded] = useState(false);
+        const handleChange(isExpanded, panel){
+            setExpanded(isExpanded ? panel : false);
+        }
+        <>
+        <Accordion expanded={expanded === "panel1"} onChange={(e, isExpanded)=> handleChange(isExpanded, 'panel1')}>
+            <AccordionSummary
+            id="panel1-header"
+            aria-controls="panel1-content"
+            expandIcon={<ExpandMoreIcon />}
+            >
+            <Typography variant="h2">Heading Text 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+            <Typography>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus
+                consectetur, vitae sequi praesentium fugiat tenetur provident assumenda
+                ad explicabo tempore?
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+
+        <Accordion expanded={expanded === "panel2"} onChange={(e, isExpanded)=> handleChange(isExpanded, 'panel2')}>
+            <AccordionSummary
+            id="panel2-header"
+            aria-controls="panel2-content"
+            expandIcon={<ExpandMoreIcon />}
+            >
+            <Typography variant="h2">Heading Text 2</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+            <Typography>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus
+                consectetur, vitae sequi praesentium fugiat tenetur provident assumenda
+                ad explicabo tempore?
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+        </>;
