@@ -247,3 +247,28 @@ https://www.youtube.com/playlist?list=PLC3y8-rFHvwh-K9mDlrrcDywl7CeVL2rO
 
 14. Paper - used the card, like an login form w/ drop-shadow, has default backgroundColor white
             <Paper sx={{padding: '32px'}} elevation={4}></Paper>
+
+15. Cards - 
+    <Box>
+        <Card>
+            <CardMedia 
+            component="img"
+            image="images/img1.jpg"
+            alt="alt"
+            />
+            <CardContent>
+            <Typography gutterBottom variant="h5">
+                React
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus libero suscipit dolorem ratione nihil, debitis maiores consectetur eius recusandae veniam!
+            </Typography>
+            </CardContent>
+            <CardActions>
+            <Button>Share</Button>
+            <Button>Learn More</Button>
+            </CardActions>
+        </Card>
+    </Box>
+
+16. Accordion

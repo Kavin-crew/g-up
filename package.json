@@ -6,7 +6,10 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+<<<<<<< HEAD
     "@mui/icons-material": "^5.15.2",
+=======
+>>>>>>> b3a8b1d4dd7b5b14d2443ee3fbb5e217269e90ab
     "@mui/material": "^5.15.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

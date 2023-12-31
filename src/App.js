@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import "./reset.css";
 
+=======
+>>>>>>> b3a8b1d4dd7b5b14d2443ee3fbb5e217269e90ab
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Categories from "./pages/Categories";
