@@ -1,0 +1,28 @@
+// scss
+//=======================================
+// Do not change the order of those files
+//=======================================
+
+// ABSTRACT
+@import './abstracts/variables.scss';
+@import './abstracts/utilities.scss';
+@import './abstracts/mixins.scss';
+@import './abstracts/helper.scss';
+
+// BASE
+@import './base/reset.scss';
+@import './base/global.scss';
+@import './base/typography.scss';
+
+// LAYOUT
+@import './layout/header.scss';
+@import './layout/banner.scss';
+@import './layout/main.scss';
+@import './layout/footer.scss';
+
+// COMPONENTS
+@import './components/logo.scss';
+@import './components/buttons.scss';
+
+// PAGES
+@import './pages/homepage.scss';
