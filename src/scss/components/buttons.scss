@@ -22,10 +22,12 @@
     &-primary:hover {
         background-color: var(--color-Blue-2);
         color: var(--color-white);
+        box-shadow: 0 0 0 2px var(--color-white);
     }
 
     &-secondary:hover {
         color: var(--color-Blue-2);
         background-color: var(--color-white);
+        box-shadow: 0 0 0 2px var(--color-Blue-2);
     }
 }

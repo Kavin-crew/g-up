@@ -1,0 +1,23 @@
+.banner {
+    &_con {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 100px 0;
+        &_info {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p {
+                max-width: 80%;
+            }
+        }
+
+        figure {
+            width: 45%;
+        }
+    }
+}
