@@ -6,6 +6,7 @@ import Categories from './pages/Categories';
 import Blog from './pages/Blog';
 import Loginpage from './pages/Loginpage';
 import PageNotFound from './components/PageNotFound';
+import ReportaNumberpage from './pages/ReportaNumberpage';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="categories" element={<Categories />} />
                 <Route path="blog" element={<Blog />} />
                 <Route path="login" element={<Loginpage />} />
+                <Route path="reportanumber" element={<ReportaNumberpage />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>

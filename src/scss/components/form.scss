@@ -1,0 +1,61 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    max-width: 1120px;
+    min-height: 904px;
+    width: 100%;
+    padding: 20px;
+    margin-inline: auto;
+
+    border-radius: 20px;
+    background: #fff;
+
+    box-shadow: 5px 4px 10px 10px rgba(0, 0, 0, 0.05);
+
+    & label {
+        color: var(--color-black);
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+
+        small {
+            color: var(--color-red-1);
+        }
+    }
+
+    & input,
+    & textarea,
+    & p {
+        color: #999;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        width: 100%;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    &__row--report {
+        flex-direction: column;
+
+        // input {
+        //     min-height: 174px;
+        // }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+}

@@ -23,7 +23,9 @@ function Header() {
                         </li>
                     </ul>
                 </nav>
-                <button className="btn btn-primary">Report a Number</button>
+                <Link to={'/reportanumber'} className="btn btn-primary">
+                    Report a Number
+                </Link>
             </div>
         </header>
     );
