@@ -1,39 +1,46 @@
 .header {
-  display: flex;
-  background-color: var(--color-Blue-1);
-  min-height: 100px;
-  border-bottom: 2px solid var(--color-white);
-
-  & .logo {
-  }
-
-  & > div {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    min-height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    & .logo {
+        color: var(--color-white);
+    }
+
+    & > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_info {
+        display: flex;
+        gap: 20px;
+    }
 }
 
 .nav {
-  margin-left: auto;
-  &__list {
-    display: flex;
-    gap: 3vw;
-    margin-right: 2.5vw;
-  }
-  &__list_item {
-  }
-  &__list_item a {
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    color: var(--color-white-2);
-  }
-  &__list_item a:hover {
-    color: var(--color-white);
-    text-shadow: var(--text-stroke);
-  }
-  & button {
-    flex-shrink: 0;
-  }
+    &__list {
+        display: flex;
+        gap: 3vw;
+        margin-right: 2.5vw;
+    }
+    &__list_item {
+    }
+    &__list_item a {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        color: var(--color-white-2);
+    }
+    &__list_item a:hover {
+        color: var(--color-white);
+        text-shadow: var(--text-stroke);
+    }
+    & button {
+        flex-shrink: 0;
+    }
 }

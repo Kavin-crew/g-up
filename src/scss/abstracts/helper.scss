@@ -6,3 +6,9 @@
  * in your html document to have an indicator at the
  * bottom of your screen of witch breakpoint you are in.
 */
+
+.helper-banner {
+    background: var(--linear-primary);
+    min-height: 100vh;
+    padding-top: 150px;
+}

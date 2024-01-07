@@ -1,23 +1,29 @@
 .banner {
+    background: var(--linear-primary);
+
     &_con {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 30px;
-        padding: 100px 0;
+        padding: 210px 0 100px;
         &_info {
+            .heading {
+                font-size: 90px;
+            }
             width: 45%;
             display: flex;
             flex-direction: column;
             gap: 20px;
-
+            color: #fff;
             p {
                 max-width: 80%;
             }
         }
 
         figure {
-            width: 45%;
+            width: 48%;
+            max-width: fit-content;
         }
     }
 }

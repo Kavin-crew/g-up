@@ -7,8 +7,14 @@ function Blog() {
     return (
         <>
             <Header />
-            <Banner />
-            <p>Blog</p>
+
+            <div className="blogs helper-banner">
+                <div className="wrapper">
+                    <div className="blogs">
+                        <h1 className="heading">Blog</h1>
+                    </div>
+                </div>
+            </div>
             <Footer />
         </>
     );

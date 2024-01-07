@@ -5,10 +5,9 @@
     font-weight: normal;
     text-align: center;
 
-    width: 197px;
-    height: 57px;
     border-radius: 55px;
-    line-height: 57px;
+    padding: 10px 20px;
+    color: #fff;
 
     transition: all 0.3s linear;
     &-primary {
@@ -27,6 +26,16 @@
     }
 
     &-secondary:hover {
+        color: var(--color-Blue-2);
+        background-color: var(--color-white);
+        box-shadow: 0 0 0 2px var(--color-Blue-2);
+    }
+    &-transparent {
+        color: var(--color-white);
+        background: none;
+    }
+
+    &-transparent:hover {
         color: var(--color-Blue-2);
         background-color: var(--color-white);
         box-shadow: 0 0 0 2px var(--color-Blue-2);

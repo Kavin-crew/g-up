@@ -5,7 +5,7 @@ function Header() {
         <header className="header">
             <div className="wrapper">
                 <Link to={'/'}>
-                    <h2 className="logo">G-Up</h2>
+                    <h2 className="logo">g.up</h2>
                 </Link>
                 <nav className="nav">
                     <ul className="nav__list">
@@ -18,14 +18,17 @@ function Header() {
                         <li className="nav__list_item">
                             <NavLink to="/blog">Blog</NavLink>
                         </li>
-                        <li className="nav__list_item">
-                            <NavLink to="/login">Login</NavLink>
-                        </li>
                     </ul>
                 </nav>
-                <Link to={'/reportanumber'} className="btn btn-primary">
-                    Report a Number
-                </Link>
+
+                <div className="header_info">
+                    <Link to={'/reportanumber'} className="btn btn-transparent">
+                        Login
+                    </Link>
+                    <Link to={'/reportanumber'} className="btn btn-secondary">
+                        Get Started
+                    </Link>
+                </div>
             </div>
         </header>
     );
