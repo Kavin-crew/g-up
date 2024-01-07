@@ -5,9 +5,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <React.StrictMode>
             <App />
-        </LocalizationProvider>
-    </React.StrictMode>
+        </React.StrictMode>
+    </LocalizationProvider>
 );
