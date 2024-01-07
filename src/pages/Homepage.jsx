@@ -6,10 +6,8 @@ import Footer from '../components/Footer';
 function Homepage() {
     return (
         <>
-            <Header />
             <Banner />
             <Main />
-            <Footer />
         </>
     );
 }

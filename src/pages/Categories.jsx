@@ -5,7 +5,7 @@ import BannerNonHome from '../components/BannerNonHome.jsx';
 function Categories() {
     return (
         <>
-            <Header />
+            {/*           <Header /> */}
             <div className="categories helper-banner">
                 <div className="wrapper">
                     <div className="categories_con">

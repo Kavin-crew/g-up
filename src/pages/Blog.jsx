@@ -6,8 +6,6 @@ import Footer from '../components/Footer';
 function Blog() {
     return (
         <>
-            <Header />
-
             <div className="blogs helper-banner">
                 <div className="wrapper">
                     <div className="blogs">
@@ -15,7 +13,6 @@ function Blog() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

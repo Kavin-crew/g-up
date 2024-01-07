@@ -22,10 +22,10 @@ function Header() {
                 </nav>
 
                 <div className="header_info">
-                    <Link to={'/reportanumber'} className="btn btn-transparent">
+                    <Link to={'/login'} className="btn btn-transparent">
                         Login
                     </Link>
-                    <Link to={'/reportanumber'} className="btn btn-secondary">
+                    <Link to={'/register'} className="btn btn-secondary">
                         Get Started
                     </Link>
                 </div>
