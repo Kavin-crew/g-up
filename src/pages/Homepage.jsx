@@ -4,6 +4,7 @@ import Main from '../components/Main';
 import Footer from '../components/Footer';
 import Middle from '../components/Middle';
 import HowItWorks from '../components/HowItWorks';
+import Search from '../components/Search';
 
 function Homepage() {
     return (
@@ -12,6 +13,7 @@ function Homepage() {
             <Middle />
             <Main />
             <HowItWorks />
+            <Search />
         </>
     );
 }
