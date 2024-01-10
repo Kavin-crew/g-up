@@ -19,13 +19,15 @@
 @import './layout/banner.scss';
 @import './layout/main.scss';
 @import './layout/footer.scss';
+@import './layout/middle.scss';
+@import './layout/howitworks.scss';
 
 // COMPONENTS
 @import './components/logo.scss';
 @import './components/buttons.scss';
 @import './components/heading.scss';
 @import './components/form.scss';
-
+@import './components/counter.scss';
 // PAGES
 @import './pages/homepage.scss';
 @import './pages/categories.scss';

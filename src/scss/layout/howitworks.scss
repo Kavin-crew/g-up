@@ -1,0 +1,44 @@
+.howitworks {
+    &_con {
+        text-align: center;
+        &_heading {
+            color: var(--color-Blue-1);
+            font-size: 75px;
+            font-weight: 500;
+            line-height: 100%; /* 75px */
+        }
+    }
+
+    &_boxes {
+        margin: 100px auto 0;
+        display: flex;
+        justify-content: space-between;
+        section {
+            width: 33%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            figure {
+                height: 252px;
+
+                img {
+                    height: 100%;
+                    object-fit: contain;
+                    width: 100%;
+                }
+            }
+
+            .heading {
+                color: #000;
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 100%; /* 32px */
+            }
+
+            p {
+                max-width: 370px;
+                margin: auto;
+            }
+        }
+    }
+}

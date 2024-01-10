@@ -6,11 +6,11 @@ function Banner() {
             <div className="wrapper">
                 <div className="banner_con">
                     <div className="banner_con_info">
-                        <h1 className="heading heading-secondary">
+                        <h2 className="heading heading-secondary">
                             <small className="primary-heading-small">Uncover Scammers:</small>
                             Search, Verify,
                             <span>Protect!</span>
-                        </h1>
+                        </h2>
                         <p>Explore Our Tool to Identify Scam Phone Numbers Instantly.</p>
                         <Link to="/reportanumber" class="btn btn-primary">
                             Report a Number
