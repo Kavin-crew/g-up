@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+const [searchNumber, setSearchNumber] = useState('');
+
 function Search() {
     return (
         <div className="search">
@@ -12,7 +16,7 @@ function Search() {
                     </div>
 
                     <form action="" class="search_con_form">
-                        <input type="text" placeholder="09XX-XXX-XXXX" />
+                        <input type="text" placeholder="09XX-XXX-XXXX" required />
                         <button type="submit" class="search_con_form_btn">
                             Search
                         </button>

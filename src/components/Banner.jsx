@@ -7,11 +7,11 @@ function Banner() {
                 <div className="banner_con">
                     <div className="banner_con_info">
                         <h2 className="heading heading-secondary">
-                            <small className="primary-heading-small">Uncover Scammers:</small>
-                            Search, Verify,
-                            <span>Protect!</span>
+                            <small className="primary-heading-small">Report Scammers</small>
+                            Protect
+                            <span>Each Other</span>
                         </h2>
-                        <p>Explore Our Tool to Identify Scam Phone Numbers Instantly.</p>
+                        <p>Your input can help others avoid falling victim to scams.</p>
                         <Link to="/reportanumber" class="btn btn-primary">
                             Report a Number
                         </Link>
