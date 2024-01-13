@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const [searchNumber, setSearchNumber] = useState('');
+function Search({ setSearchNumber }) {
+    const navigate = useNavigate();
 
-function Search() {
+    const submitSearch = (e) => {
+        e.preventDefault();
+
+        navigate('/search');
+    };
+
     return (
         <div className="search">
             <div className="wrapper">
@@ -15,9 +21,9 @@ function Search() {
                         </p>
                     </div>
 
-                    <form action="" class="search_con_form">
-                        <input type="text" placeholder="09XX-XXX-XXXX" required />
-                        <button type="submit" class="search_con_form_btn">
+                    <form action="" method="post" onSubmit={submitSearch} className="search_con_form">
+                        <input type="text" placeholder="09XX-XXX-XXXX" onChange={(e) => setSearchNumber(e.target.value)} required />
+                        <button type="submit" className="search_con_form_btn">
                             Search
                         </button>
                     </form>

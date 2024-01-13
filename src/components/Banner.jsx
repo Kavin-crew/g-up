@@ -12,7 +12,7 @@ function Banner() {
                             <span>Each Other</span>
                         </h2>
                         <p>Your input can help others avoid falling victim to scams.</p>
-                        <Link to="/reportanumber" class="btn btn-primary">
+                        <Link to="/reportanumber" className="btn btn-primary">
                             Report a Number
                         </Link>
                     </div>

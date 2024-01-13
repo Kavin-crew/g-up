@@ -1,19 +1,18 @@
-import Header from '../components/Header';
 import Banner from '../components/Banner';
 import Main from '../components/Main';
-import Footer from '../components/Footer';
 import Middle from '../components/Middle';
 import HowItWorks from '../components/HowItWorks';
 import Search from '../components/Search';
-
+import { useState } from 'react';
 function Homepage() {
+    const [searchNumber, setSearchNumber] = useState('');
     return (
         <>
             <Banner />
             <Middle />
             <Main />
-            <HowItWorks />
-            <Search />
+            <HowItWorks searchNumber={searchNumber} />
+            <Search setSearchNumber={setSearchNumber} />
         </>
     );
 }

@@ -6,7 +6,7 @@ function Footer() {
                     <div className="footer_con_copyright">
                         <h2>g.up</h2>
                         <p>
-                            Copyright &copy; {new Date().getFullYear()} | <a href="javascript:;">Privacy Policy</a> | Designed by Probee
+                            Copyright &copy; {new Date().getFullYear()} | <a href="/">Privacy Policy</a> | Designed by Probee
                         </p>
                     </div>
 
