@@ -14,8 +14,11 @@ html {
     //   font-size: 50%; //1rem = 8px
     // }
 }
-
+* {
+    font-family: var(--font-primary);
+}
 a {
+    font-family: var(--font-primary);
     color: inherit;
 }
 

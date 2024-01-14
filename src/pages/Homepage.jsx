@@ -3,15 +3,13 @@ import Main from '../components/Main';
 import Middle from '../components/Middle';
 import HowItWorks from '../components/HowItWorks';
 import Search from '../components/Search';
-import { useState } from 'react';
-function Homepage() {
-    const [searchNumber, setSearchNumber] = useState('');
+function Homepage({ setSearchNumber }) {
     return (
         <>
             <Banner />
             <Middle />
             <Main />
-            <HowItWorks searchNumber={searchNumber} />
+            <HowItWorks />
             <Search setSearchNumber={setSearchNumber} />
         </>
     );

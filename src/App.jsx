@@ -12,12 +12,14 @@ import Footer from './components/Footer';
 import { useState } from 'react';
 
 function App() {
+    const [searchNumber, setSearchNumber] = useState('');
+
     return (
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route index element={<Homepage />} />
-                <Route path="search" element={<Categories />} />
+                <Route index element={<Homepage setSearchNumber={setSearchNumber} />} />
+                <Route path="search" element={<Categories setSearchNumber={setSearchNumber} searchNumber={searchNumber} />} />
                 <Route path="blog" element={<Blog />} />
                 <Route path="login" element={<Loginpage />} />
                 <Route path="register" element={<Loginpage />} />

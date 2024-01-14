@@ -1,4 +1,4 @@
-function HowItWorks({ searchNumber }) {
+function HowItWorks() {
     return (
         <div className="howitworks">
             <div className="wrapper">
@@ -11,7 +11,6 @@ function HowItWorks({ searchNumber }) {
                                 <img src="images/howitwork1.png" alt="dummy" />
                             </figure>
                             <h2 className="heading">Register</h2>
-                            {searchNumber}
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.amet, consectetur adipiscing</p>
                         </section>
                         <section>
