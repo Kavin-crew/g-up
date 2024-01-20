@@ -1,7 +1,23 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import LoginModal from './LoginComponent/LoginModal'
+
 
 function Header() {
+
+    const [IsOpen, setIsOpen] = useState(false);
+    const [IsLogin , setIsLogin] = useState(true)
+    
+    const isLogin = (status) =>{
+        setIsOpen(!IsOpen)
+        setIsLogin(status)
+    }
+
+
     return (
+        <>
+          { IsOpen &&   <LoginModal setIsOpen={setIsOpen} IsLogin={IsLogin} setIsLogin={setIsLogin} />}
+ 
         <header className="header">
             <div className="wrapper">
                 <Link to={'/'}>
@@ -22,15 +38,20 @@ function Header() {
                 </nav>
 
                 <div className="header_info">
-                    <Link to={'/login'} className="btn btn-transparent">
-                        Login
-                    </Link>
-                    <Link to={'/register'} className="btn btn-secondary">
+                    {/* <Link to={'/login'} className="btn btn-transparent"> */}
+                      <button className="btn btn-transparent" onClick={()=>isLogin(true)}>
+                      Login
+                      </button>
+                    {/* </Link> */}
+                    {/* <Link to={'/register'} className="btn btn-secondary"> */}
+                    <button className="btn btn-secondary" onClick={()=>isLogin(false)}>
                         Get Started
-                    </Link>
+                        </button>
+                    {/* </Link> */}
                 </div>
             </div>
         </header>
+        </>
     );
 }
 

@@ -4,6 +4,30 @@
     // }
 }
 
+.a-btn{
+    color: var(--color-Blue-2);
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &:before{
+        content: '';
+        width: 0%;
+        height: 1px;
+        background: var(--color-Blue-1);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        margin-inline: auto;
+        transition: all 500ms;
+    }
+
+    &:hover::before{
+        width: 100%;
+    }
+}
+
 .u-figure-center {
     overflow: hidden;
 }
