@@ -11,10 +11,35 @@ const toggleShow = ()=>{
     setTogglePass(!TogglePass)
 }
 
-const handleSubmit =(e)=>{
+const handleSubmit = async (e)=>{
     e.preventDefault();
     console.warn(`Phone: ${UserPhone}`)
     console.warn(`Password: ${UserPass}`)
+
+
+    try {
+        const res = await fetch("https://g-up-api.up.railway.app/api/v1/users/login",{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json",
+          },
+          body: JSON.stringify({
+            "email": "kevinwebsterr2016@gmail.com",
+            "password": "09277469949"
+          }),
+        });
+
+        console.log(res)
+
+
+      } catch (error) {
+        console.log(error)
+      }
+
+
+
+
+
 }
 
 const isClose =()=>{
