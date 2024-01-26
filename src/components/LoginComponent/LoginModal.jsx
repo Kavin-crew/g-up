@@ -12,18 +12,17 @@ const LoginModal = ({setIsOpen , IsLogin , setIsLogin}) => {
         <>
         <div className="modal" >
             <div className="modal__backdrop" onClick={isClose}></div>
-            <div className="wrapper">
            <div className="modal__con">
          
            {IsLogin ?  
-              <LoginCard setIsOpen={setIsOpen} setIsLogin={setIsLogin} />  : 
+              <LoginCard setIsOpen={setIsOpen} setIsLogin={setIsLogin} />  
+              : 
               <RegisterCard setIsOpen={setIsOpen} setIsLogin={setIsLogin}/>}
 
 
            
            
            </div>
-            </div>
         </div>
             
         </>

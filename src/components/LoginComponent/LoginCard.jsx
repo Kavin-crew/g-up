@@ -65,12 +65,14 @@ const gotoRegister =()=>{
                     <div className="modal__form__input">
                     <figure className="modal__form__input__icon"> <MdOutlinePhoneAndroid size='2.1rem' color="#9D9D9D" /></figure>
                         <input type="text" placeholder="Phone Number" value={UserPhone} onChange={e=>setUserPhone(e.target.value)}/>
+                        <div className="line"></div>
                     </div>
 
                     <div className="modal__form__input">
                     <figure className="modal__form__input__icon"> <img src='images/icons/form-key-icon.png' alt="Key Icon" /></figure>
                         <input type={!TogglePass ? 'password' : 'text'} value={UserPass} onChange={e=>setUserPass(e.target.value)} placeholder="Password"/>
-                    <figure className="modal__form__input__icon" onClick={toggleShow}> {!TogglePass ? <IoMdEye size='2.5rem' color="#C5C5C5" /> : <IoMdEyeOff size='2.5rem' color="#C5C5C5" />} </figure>
+                        <div className="line"></div>
+                    <figure className="modal__form__input__icon pointer" onClick={toggleShow}> {!TogglePass ? <IoMdEye size='2.5rem' color="#C5C5C5" /> : <IoMdEyeOff size='2.5rem' color="#C5C5C5" />} </figure>
                     </div>
 
                     <div className="modal__form__info">
