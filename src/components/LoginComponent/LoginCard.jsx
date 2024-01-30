@@ -18,7 +18,7 @@ const handleSubmit = async (e)=>{
 
 
     try {
-        const res = await fetch("https://g-up-api.up.railway.app/api/v1/users/login",{
+        const res = await fetch("http://127.0.0.1:3000/api/v1/users/login",{
           method:"POST",
           headers:{
             "Content-Type":"application/json",

@@ -1,4 +1,13 @@
+import { useState } from "react";
+
+
+
+
 function SearchItem({ data }) {
+    
+    
+    const [showDetails,setShowDetails] = useState(false);
+    
     return (
         <div className="searchItem">
             {console.log(data)}

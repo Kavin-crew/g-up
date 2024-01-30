@@ -40,7 +40,8 @@
     &__list_item a:hover,
     &__list_item a.active {
         color: var(--color-white);
-        text-shadow: var(--text-stroke);
+        -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 1px;
     }
 
     & button {

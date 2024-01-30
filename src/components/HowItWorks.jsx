@@ -14,7 +14,7 @@ function HowItWorks() {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.amet, consectetur adipiscing</p>
                         </section>
                         <section>
-                            <figure>
+                        <figure>
                                 <img src="images/howitwork2.png" alt="dummy" />
                             </figure>
                             <h2 className="heading">Report a Number</h2>

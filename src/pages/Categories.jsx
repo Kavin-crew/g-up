@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import SearchBoxes from '../components/SearchBoxes';
+import { useEffect, useState } from 'react';
+import SearchBoxes from '../components/SearchCompnent/SearchBoxes';
 function Categories({ searchNumber, setSearchNumber }) {
     const [tempNumber, setTempNumber] = useState(searchNumber);
     const [totalNumber, setTotalNumber] = useState(1784);
-
+    const [reports,setReports] = useState();
     const sampleData = [
         { id: 1, date: 'January 1, 2024', category: '1E-Games', amount: 1000 },
         { id: 2, date: 'January 2, 2024', category: '2E-Games', amount: 2000 },
@@ -12,6 +12,22 @@ function Categories({ searchNumber, setSearchNumber }) {
         { id: 5, date: 'January 5, 2024', category: '5E-Games', amount: 5000 },
         { id: 6, date: 'January 6, 2024', category: '6E-Games', amount: 6000 },
     ];
+
+
+    useEffect( ()=>{
+    
+        const getReport = async () =>{
+            const res = await fetch("http://127.0.0.1:3000/api/v1/reports");
+            const report = await res.json();
+            setReports(report);
+
+        }
+
+        getReport()
+
+    
+
+    },[])
 
     const submitSearch = (e) => {
         e.preventDefault();
@@ -45,7 +61,26 @@ function Categories({ searchNumber, setSearchNumber }) {
                             </form>
                         </div>
 
-                        {searchNumber ? <SearchBoxes sampleData={sampleData} /> : <h1 class="noData">No Data Found</h1>}
+
+                        <div className="searchBoxes">
+            <div className="searchBoxes_header">
+                <h2>Date Reported</h2>
+                <h2>Category</h2>
+                <h2>Amount</h2>
+                <h2>Action</h2>
+            </div>
+
+                        {searchNumber ? <SearchBoxes sampleData={sampleData} /> :  <figure className='nodata'>
+                                <img src="images/formkit_sad.svg" alt="sad face" />
+                                <figcaption>no data found. </figcaption>
+                            </figure>}
+
+
+        </div>
+
+
+
+
                     </div>
                 </div>
             </div>
