@@ -12,6 +12,7 @@ const RegisterCard = ({setIsOpen ,setIsLogin}) => {
 const [TogglePass, setTogglePass] = useState(false)
 
 const phoneRef = useRef();
+const passRef = useRef();
 const errRef = useRef();
 
 
@@ -45,7 +46,7 @@ const [UserConfirmPassFocus,setUserConfirmPassFocus] = useState(false)
 const USER_REGEX = /^[A-z][A-z0-9-_]{2,23}$/;
 const NAME_REGEX = /^[A-z]{2,23}$/;
 /* const NAME_REGEX = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/; */
-const PHONE_REGEX = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{5}$/;
+const PHONE_REGEX = /^[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{5}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -56,6 +57,7 @@ const [success,setSucess] = useState(false)
 
 useEffect(()=>{
     phoneRef.current.focus();
+    passRef.value = ''
 },[])
 
 useEffect(()=>{
@@ -91,22 +93,6 @@ const toggleShow = ()=>{
 
 const handleSubmit = async (e)=>{
     e.preventDefault();
-/* 
-
-    if (!Fname || !Lname || !UserEmail)
-     {
-        toast('🦄 Input Details', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });
-        }
-     */
     console.warn(`Name: ${Fname}`)
     console.warn(`Lname: ${Lname}`)
     console.warn(`Email: ${UserEmail}`)
@@ -217,10 +203,22 @@ const handleSubmit = async (e)=>{
 
                     <div className="modal__form__input">
                     <figure className="modal__form__input__icon"> <img src='images/icons/form-key-icon.png' alt="Email Icon" /></figure>
-                    <input type={!TogglePass ? 'password' : 'text'}  value={UserPass} onChange={e=>setUserPass(e.target.value)} placeholder="Password"
                     
+                    <input type={!TogglePass ? 'password' : 'text'}  value={UserPass} onChange={e=>setUserPass(e.target.value)} placeholder="Password"
+                     onFocus={()=>setUserPassFocus(true)}
+                     onBlur={()=>setUserPassFocus(false)}
+                     aria-invalid={validUserPass ? "false" : "true"}
+                     className={validUserPass ? "validInput" : "invalidInput"}
+                     aria-describedby="pidnote"
+                    ref={passRef}
+
                     />
-                    <div className="line"></div>
+                   <div className={validUserPass ? "valid line" : "line" }></div>
+                        <div className={validUserPass || !UserPass ? "hide" : "invalid line" }></div>
+                        <p id="pidnote" className={UserPassFocus && UserPass && !validUserPass ? "instructions" : "offscreen"}>
+                        • 8-24 Letters | Special Char <br/>• Number | Capital Letters
+                    </p>
+
                         <figure className="modal__form__input__icon pointer" onClick={toggleShow}> {!TogglePass ? <IoMdEye size='2.5rem' color="#C5C5C5" /> : <IoMdEyeOff size='2.5rem' color="#C5C5C5" />} </figure>
 
 
