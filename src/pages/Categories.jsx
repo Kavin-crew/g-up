@@ -25,6 +25,7 @@ function Categories({ searchNumber, setSearchNumber }) {
 
         getReport()
 
+        
     
 
     },[])

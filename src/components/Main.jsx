@@ -3,14 +3,14 @@ function Main() {
         <main className="main">
             <div className="wrapper">
                 <div className="main_con">
-                    <h1 class="heading">
+                    <h1 className="heading">
                         <small>What is</small>
                         g.up?
                     </h1>
 
                     <div className="main_con_desc">
                         <p>
-                            At <mark class="comp">g.up</mark>, we're on a mission to create a safer online environment for everyone. Our
+                            At <mark className="comp">g.up</mark>, we're on a mission to create a safer online environment for everyone. Our
                             community-driven platform empowers users like you to report and stay informed about scammers.
                         </p>
                         <p>

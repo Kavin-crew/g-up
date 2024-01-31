@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState,useRef, useEffect } from "react";
+
+
 import { IoMdEye , IoMdEyeOff  } from "react-icons/io";
 import { MdOutlinePhoneAndroid } from "react-icons/md";
 import {    toast } from 'react-toastify';
@@ -8,12 +10,79 @@ import 'react-toastify/dist/ReactToastify.css';
 const RegisterCard = ({setIsOpen ,setIsLogin}) => {
 
 const [TogglePass, setTogglePass] = useState(false)
+
+const phoneRef = useRef();
+const errRef = useRef();
+
+
 const [Fname, setFname] = useState('')
+const [validFname, setValidFname] = useState(false)
+const [FnameFocus, setFnameFocus] = useState(false)
+
+
 const [Lname, setLname] = useState('')
+const [validLname, setValidLname] = useState(false)
+const [LnameFocus, setLnameFocus] = useState(false)
+
 const [UserEmail, setUserEmail] = useState('')
+const [validUserEmail, setValidUserEmail] = useState(false)
+const [UserEmailFocus, setUserEmailFocus] = useState(false)
+
+
 const [UserPhone, setUserPhone] = useState('')
+const [validUserPhone, setValidUserPhone] = useState(false)
+const [UserPhoneFocus, setUserPhoneFocus] = useState(false)
+
+
 const [UserPass, setUserPass] = useState('')
+const [validUserPass, setValidUserPass] = useState(false)
+const [UserPassFocus, setUserPassFocus] = useState(false)
+
 const [UserConfirmPass, setUserConfirmPass] = useState('')
+const [validUserConfirmPass, setValidUserConfirmPass] = useState(false)
+const [UserConfirmPassFocus,setUserConfirmPassFocus] = useState(false)
+
+const USER_REGEX = /^[A-z][A-z0-9-_]{2,23}$/;
+const NAME_REGEX = /^[A-z]{2,23}$/;
+/* const NAME_REGEX = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/; */
+const PHONE_REGEX = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{5}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+
+const [errMsg,setErrMsg] = useState('')
+const [success,setSucess] = useState(false)
+
+
+useEffect(()=>{
+    phoneRef.current.focus();
+},[])
+
+useEffect(()=>{
+    const result = PHONE_REGEX.test(UserPhone)
+    console.log(result)
+    console.log(UserPhone)
+    setValidUserPhone(result)
+    console.log("Valid Phone: "+UserPhone)
+},[UserPhone])
+
+useEffect(()=>{
+    const result = PWD_REGEX.test(UserPass)
+    console.log(result)
+    console.log(UserPass)
+    setValidUserPass(result)
+
+    const match = UserPass === UserConfirmPass
+    setValidUserConfirmPass(match)
+},[UserPass,UserConfirmPass])
+
+
+useEffect(()=>{
+    setErrMsg('')
+
+},[UserPhone,UserPass,UserConfirmPass])
+
+
 
 const toggleShow = ()=>{
     setTogglePass(!TogglePass)
@@ -22,7 +91,7 @@ const toggleShow = ()=>{
 
 const handleSubmit = async (e)=>{
     e.preventDefault();
-
+/* 
 
     if (!Fname || !Lname || !UserEmail)
      {
@@ -37,7 +106,7 @@ const handleSubmit = async (e)=>{
             theme: "light",
             });
         }
-    
+     */
     console.warn(`Name: ${Fname}`)
     console.warn(`Lname: ${Lname}`)
     console.warn(`Email: ${UserEmail}`)
@@ -91,10 +160,8 @@ const handleSubmit = async (e)=>{
     const isClose =()=>{
         setIsOpen(false)
     }
-
     const gotoRegister =()=>{
         setIsLogin(true)
-
     }
 
     return (
@@ -104,6 +171,10 @@ const handleSubmit = async (e)=>{
                   <h2>Create Account</h2>
            
                 <form className="modal__form" onSubmit={handleSubmit}>
+                    <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"}
+                    aria-live="assertive"
+                    >{errMsg}</p>
+
 
                     <div className="modal__form__input">
                         <div className="modal__form__input_fname">
@@ -128,15 +199,32 @@ const handleSubmit = async (e)=>{
 
                     <div className="modal__form__input">
                     <figure className="modal__form__input__icon"> <MdOutlinePhoneAndroid size='2.1rem' color="#9D9D9D" /></figure>
-                        <input type="text" placeholder="Phone Number" value={UserPhone} onChange={e=> setUserPhone(e.target.value)}/>
-                        <div className="line"></div>
+                        <input type="text" placeholder="Phone Number" value={UserPhone} onChange={e=> setUserPhone(e.target.value)}
+                        ref={phoneRef}
+                        onFocus={()=>setUserPhoneFocus(true)}
+                        onBlur={()=>setUserPhoneFocus(false)}
+                        aria-invalid={validUserPhone ? "false" : "true"}
+                        className={validUserPhone ? "validInput" : "invalidInput"}
+                        aria-describedby="uidnote"
+                        />
+                        <div className={validUserPhone ? "valid line" : "line" }></div>
+                        <div className={validUserPhone || !UserPhone ? "hide" : "invalid line" }></div>
+                        <p id="uidnote" className={UserPhoneFocus && UserPhone && !validUserPhone ? "instructions" : "offscreen"}>
+                        Input valid Phonenumber
+                    </p>
                     </div>
+                   
 
                     <div className="modal__form__input">
                     <figure className="modal__form__input__icon"> <img src='images/icons/form-key-icon.png' alt="Email Icon" /></figure>
-                    <input type={!TogglePass ? 'password' : 'text'}  value={UserPass} onChange={e=>setUserPass(e.target.value)} placeholder="Password"/>
+                    <input type={!TogglePass ? 'password' : 'text'}  value={UserPass} onChange={e=>setUserPass(e.target.value)} placeholder="Password"
+                    
+                    />
                     <div className="line"></div>
                         <figure className="modal__form__input__icon pointer" onClick={toggleShow}> {!TogglePass ? <IoMdEye size='2.5rem' color="#C5C5C5" /> : <IoMdEyeOff size='2.5rem' color="#C5C5C5" />} </figure>
+
+
+
                     </div>
 
                     <div className="modal__form__input">
