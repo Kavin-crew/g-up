@@ -82,7 +82,7 @@ place-items: center;
             text-align: right;
             font-size: 20px;
             font-weight: bold;
-            color: #A1A1A1;
+            color: #888;
             cursor: pointer;
             width: fit-content;
             margin-left: auto;
@@ -268,7 +268,8 @@ place-items: center;
         border: 1px solid #B0D8DA;
     }
     &__btn:disabled{
-        background: red;
+       opacity: .8;
+       pointer-events: none;
     }
 
 

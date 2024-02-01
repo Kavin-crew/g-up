@@ -3,7 +3,7 @@ import { useState,useRef, useEffect } from "react";
 
 import { IoMdEye , IoMdEyeOff  } from "react-icons/io";
 import { MdOutlinePhoneAndroid } from "react-icons/md";
-import {    toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -18,7 +18,6 @@ const errRef = useRef();
 
 const [Fname, setFname] = useState('')
 const [validFname, setValidFname] = useState(false)
-
 
 const [Lname, setLname] = useState('')
 const [validLname, setValidLname] = useState(false)
@@ -41,7 +40,6 @@ const [UserConfirmPass, setUserConfirmPass] = useState('')
 const [validUserConfirmPass, setValidUserConfirmPass] = useState(false)
 const [UserConfirmPassFocus,setUserConfirmPassFocus] = useState(false)
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{2,23}$/;
 const NAME_REGEX = /^[A-z]{2,23}$/;
 const PHONE_REGEX = /^[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{5}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -65,7 +63,6 @@ useEffect(()=>{
     const result = NAME_REGEX.test(Lname)
     setValidLname(result)
 },[Lname])
-
 
 
 useEffect(()=>{
@@ -103,20 +100,19 @@ useEffect(()=>{
 },[UserPhone,UserPass,UserConfirmPass])
 
 
-
 const toggleShow = ()=>{
     setTogglePass(!TogglePass)
-
 }
 
 const handleSubmit = async (e)=>{
     e.preventDefault();
-    console.warn(`Name: ${Fname}`)
-    console.warn(`Lname: ${Lname}`)
-    console.warn(`Email: ${UserEmail}`)
-    console.warn(`Phone: ${UserPhone}`)
-    console.warn(`Password: ${UserPass}`)
-    console.warn(`Confirm Password: ${UserConfirmPass}`)
+    const v1 = EMAIL_REGEX.test(UserEmail)
+    const v2 = PWD_REGEX.test(UserPass)
+
+    if( !v1 || !v2) {
+        toast.error('Invalid Entry')
+        return;
+    }
 
     try {
         const res = await fetch("https://g-up-api.up.railway.app/api/v1/users/signup",{
@@ -135,12 +131,13 @@ const handleSubmit = async (e)=>{
         });
         
         const data = await res.json()
-        console.log(data)
 
-        if (res.ok){
+
+
 
         
-        toast('🦄 Account Created Successfully!', {
+        if (res.ok){
+        toast.success('Account Created Successfully!', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -151,7 +148,26 @@ const handleSubmit = async (e)=>{
             theme: "light",
             });
         }
+
+        if (!res.ok){
+
+            toast.error(data.message,{
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
+
+        }
+
+
+
       } catch (error) {
+
         console.log(error)
       }
 
@@ -184,7 +200,7 @@ const handleSubmit = async (e)=>{
                     <figure className="modal__form__input__icon"> <img src='images/icons/form-user-icon.png' alt="Email Icon" /></figure>
                         <input type="text" placeholder="First Name" value={Fname} onChange={e=> setFname(e.target.value)}
                             ref={fnameRef}
-                            className={validFname ? "validInput":"invalidInput"}
+                            className={validFname ? "validInput":""}
 
                         />
 
@@ -197,7 +213,7 @@ const handleSubmit = async (e)=>{
                         <div className="modal__form__input_lname">
 
                         <input type="text" placeholder="Last Name" value={Lname} onChange={e=> setLname(e.target.value)}
-                            className={validLname ? "validInput":"invalidInput"}
+                            className={validLname ? "validInput":""}
 
                         />
 
@@ -218,7 +234,7 @@ const handleSubmit = async (e)=>{
                         onFocus={()=>setUserEmailFocus(true)}
                         onBlur={()=>setUserEmailFocus(false)}
                         aria-invalid={validUserEmail ? "false" : "true"}
-                        className={validUserEmail ? "validInput":"invalidInput"}
+                        className={validUserEmail ? "validInput":""}
                         aria-describedby="emailnote"
                         />
 
@@ -243,7 +259,7 @@ const handleSubmit = async (e)=>{
                         onFocus={()=>setUserPhoneFocus(true)}
                         onBlur={()=>setUserPhoneFocus(false)}
                         aria-invalid={validUserPhone ? "false" : "true"}
-                        className={validUserPhone ? "validInput" : "invalidInput"}
+                        className={validUserPhone ? "validInput" : ""}
                         aria-describedby="uidnote"
                         />
                         <div className={validUserPhone ? "valid line" : "line" }></div>
@@ -262,7 +278,7 @@ const handleSubmit = async (e)=>{
                      onFocus={()=>setUserPassFocus(true)}
                      onBlur={()=>setUserPassFocus(false)}
                      aria-invalid={validUserPass ? "false" : "true"}
-                     className={validUserPass ? "validInput" : "invalidInput"}
+                     className={validUserPass ? "validInput" : ""}
                      aria-describedby="pidnote"
                     ref={passRef}
 
@@ -285,7 +301,7 @@ const handleSubmit = async (e)=>{
                         onFocus={()=>setUserConfirmPassFocus(true)}
                         onBlur={()=>setUserConfirmPassFocus(false)}
                         aria-invalid={validUserConfirmPass ? "false" : "true"}
-                        className={validUserConfirmPass && UserPass ? "validInput" : "invalidInput"}
+                        className={validUserConfirmPass && UserPass  ? "validInput" : ""}
                         aria-describedby="pcidnote"
                         />
 
@@ -304,7 +320,7 @@ const handleSubmit = async (e)=>{
 
 
                     <button className="modal__form__btn btn-secondary"
-                    disabled={!validFname || !validLname || !validUserEmail || !validUserPhone || !validUserPass || !validUserConfirmPass ? "true" : "false"}
+                    disabled={!validFname || !validLname || !validUserEmail || !validUserPhone || !validUserPass || !validUserConfirmPass ? true : false}
                     >
                     Create Account
                     </button>
