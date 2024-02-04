@@ -64,31 +64,20 @@ useEffect(()=>{
     setValidLname(result)
 },[Lname])
 
-
 useEffect(()=>{
     const result = PHONE_REGEX.test(UserPhone)
-    console.log(result)
-    console.log(UserPhone)
     setValidUserPhone(result)
-    console.log("Valid Phone: "+UserPhone)
 },[UserPhone])
 
 useEffect(()=>{
-
     const result = EMAIL_REGEX.test(UserEmail)
-    console.log(result)
-    console.log(UserEmail)
     setValidUserEmail(result);
-
 },[UserEmail])
 
 
 useEffect(()=>{
     const result = PWD_REGEX.test(UserPass)
-    console.log(result)
-    console.log(UserPass)
     setValidUserPass(result)
-
     const match = UserPass === UserConfirmPass
     setValidUserConfirmPass(match)
 },[UserPass,UserConfirmPass])
@@ -96,7 +85,6 @@ useEffect(()=>{
 
 useEffect(()=>{
     setErrMsg('')
-
 },[UserPhone,UserPass,UserConfirmPass])
 
 
@@ -108,7 +96,6 @@ const handleSubmit = async (e)=>{
     e.preventDefault();
     const v1 = EMAIL_REGEX.test(UserEmail)
     const v2 = PWD_REGEX.test(UserPass)
-
     if( !v1 || !v2) {
         toast.error('Invalid Entry')
         return;
@@ -139,7 +126,7 @@ const handleSubmit = async (e)=>{
         if (res.ok){
         toast.success('Account Created Successfully!', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -147,6 +134,10 @@ const handleSubmit = async (e)=>{
             progress: undefined,
             theme: "light",
             });
+            setTimeout(function() {
+                gotoRegister();
+            }, 1000);
+          
         }
 
         if (!res.ok){
@@ -319,7 +310,7 @@ const handleSubmit = async (e)=>{
                     </div>
 
 
-                    <button className="modal__form__btn btn-secondary"
+                    <button className="modal__form__btn btn-primary"
                     disabled={!validFname || !validLname || !validUserEmail || !validUserPhone || !validUserPass || !validUserConfirmPass ? true : false}
                     >
                     Create Account

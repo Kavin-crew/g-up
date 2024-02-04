@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoMdEye ,IoMdEyeOff  } from "react-icons/io";
 import { MdOutlinePhoneAndroid } from "react-icons/md";
 const LoginCard = ({setIsOpen , setIsLogin}) => {
@@ -6,10 +6,27 @@ const LoginCard = ({setIsOpen , setIsLogin}) => {
 const [TogglePass, setTogglePass] = useState(false)
 const [UserPhone, setUserPhone] = useState('')
 const [UserPass, setUserPass] = useState('')
+const userRef = useRef()
+
+
+
 
 const toggleShow = ()=>{
     setTogglePass(!TogglePass)
 }
+
+
+
+
+
+useEffect(()=>{
+    userRef.current.focus()
+},[])
+
+
+
+
+
 
 const handleSubmit = async (e)=>{
     e.preventDefault();
@@ -18,18 +35,19 @@ const handleSubmit = async (e)=>{
 
 
     try {
-        const res = await fetch("http://127.0.0.1:3000/api/v1/users/login",{
+        const res = await fetch("https://g-up-api.up.railway.app/api/v1/users/login",{
           method:"POST",
-          headers:{
+          headers:{ 
             "Content-Type":"application/json",
           },
           body: JSON.stringify({
-            "email": "kevinwebsterr2016@gmail.com",
-            "password": "09277469949"
+            "email": UserPhone,
+            "password": UserPass
           }),
         });
 
-        console.log(res)
+        const data = await res.json()
+        console.log(data)
 
 
       } catch (error) {
@@ -64,7 +82,9 @@ const gotoRegister =()=>{
 
                     <div className="modal__form__input">
                     <figure className="modal__form__input__icon"> <MdOutlinePhoneAndroid size='2.1rem' color="#9D9D9D" /></figure>
-                        <input type="text" placeholder="Phone Number" value={UserPhone} onChange={e=>setUserPhone(e.target.value)}/>
+                        <input ref={userRef} type="text" placeholder="Phone Number" value={UserPhone} onChange={e=>setUserPhone(e.target.value)}
+                        required
+                        />
                         <div className="line"></div>
                     </div>
 
@@ -78,8 +98,8 @@ const gotoRegister =()=>{
                     <div className="modal__form__info">
 
                         <div className="modal__form__info__remeberme">
-                            <input type="checkbox" name="" id="" />
-                            <p>Remember me</p>
+                            <input type="checkbox" name="" id="rememberme" />
+                            <label htmlFor="rememberme">Remember me</label>
                         </div>
 
                         <div className="modal__form__info__forgotpass">
@@ -87,7 +107,7 @@ const gotoRegister =()=>{
                         </div>
                     </div>
 
-                    <button className="modal__form__btn btn-secondary">
+                    <button className="modal__form__btn btn-primary">
                     Login
                     </button>
                     <p className="u-margin-top-xs">Don’t have an account? <a className="a-btn" onClick={()=>gotoRegister()}>Create one!</a></p>
