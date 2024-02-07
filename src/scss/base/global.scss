@@ -44,4 +44,11 @@ body {
     color: var(--color-Blue-1);
 }
 
-.offscreen { position: absolute; left: -9999px; }
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.display_none {
+    display: none;
+}

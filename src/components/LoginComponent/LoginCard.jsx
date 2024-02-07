@@ -1,12 +1,11 @@
-import { useEffect, useRef, useState, useContext } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { MdOutlinePhoneAndroid } from 'react-icons/md';
-import AuthContext from '../../context/AuthProvider';
 import { toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
 
 const LoginCard = ({ setIsOpen, setIsLogin }) => {
-    const { setAuth } = useContext(AuthContext);
-
+    const { setAuth } = useAuth();
     const [TogglePass, setTogglePass] = useState(false);
     const [UserPhone, setUserPhone] = useState('');
     const [UserPass, setUserPass] = useState('');
@@ -44,7 +43,7 @@ const LoginCard = ({ setIsOpen, setIsLogin }) => {
                 const accessToken = data?.token;
 
                 const userDetails = data?.data;
-                setAuth({ userDetails, password, accessToken });
+                setAuth({ userDetails, UserPass, accessToken, isSignedIn: true });
                 console.log(accessToken);
                 console.log(userDetails);
 
@@ -76,7 +75,8 @@ const LoginCard = ({ setIsOpen, setIsLogin }) => {
                 userRef.current.focus();
             }
         } catch (error) {
-            toast.error('No Server Response', {
+            console.log(error);
+            toast.error(error, {
                 position: 'top-right',
                 autoClose: 2000,
                 hideProgressBar: false,

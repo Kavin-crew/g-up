@@ -5,12 +5,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { AuthProvider } from './context/AuthProvider.jsx';
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
     <LocalizationProvider dateAdapter={AdapterDateFns}>
         <React.StrictMode>
             <AuthProvider>
-               <App />
+                <App />
             </AuthProvider>
         </React.StrictMode>
     </LocalizationProvider>
