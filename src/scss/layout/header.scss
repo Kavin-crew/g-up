@@ -20,6 +20,70 @@
     &_info {
         display: flex;
         gap: 20px;
+        width: 292px;
+        justify-content: end;
+        position: relative;
+
+        &_notification {
+            width: 63px;
+            aspect-ratio: 1/1;
+            background: #0955d3;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                box-shadow: 0 0 4px 2px #ffffffbb;
+            }
+        }
+        .profile_img {
+            position: relative;
+            width: 63px;
+            aspect-ratio: 1/1;
+
+            &_holder.showProfile {
+                &:before {
+                    transform: rotate(270deg);
+                    /* transform: rotate(90deg) rotateY(-180deg); */
+                }
+            }
+            &_holder {
+                cursor: pointer;
+
+                position: relative;
+                transition: 0.3s;
+                border-radius: 50%;
+                &:before {
+                    content: '\203A';
+                    position: absolute;
+                    font-size: 37px;
+                    width: 26px;
+                    aspect-ratio: 1/1;
+                    display: grid;
+                    place-items: center;
+                    border-radius: 50%;
+                    right: -5px;
+                    bottom: -5px;
+                    transform: rotate(90deg);
+                    line-height: 0;
+                    padding-bottom: 4px;
+                    font-family: var(--font-primary);
+                    background: #0955d3;
+                    color: #fff;
+                    transition: 0.3s;
+                }
+
+                &:hover {
+                    box-shadow: 0 0 4px 2px #ffffffbb;
+
+                    &:before {
+                        box-shadow: 0 1px 3px 1px #ffffffbb;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -41,10 +105,26 @@
     &__list_item a.active {
         color: var(--color-white);
         -webkit-text-stroke-color: #fff;
-  -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-width: 1px;
     }
 
     & button {
         flex-shrink: 0;
+    }
+}
+
+.profiledropdown {
+    position: absolute;
+    width: 335px;
+    min-height: 262px;
+    right: 0;
+    top: 120%;
+    border-radius: 10px;
+    background: #f7f7f7;
+    padding: 20px;
+    &_user {
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
     }
 }

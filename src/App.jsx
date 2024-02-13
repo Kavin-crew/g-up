@@ -25,6 +25,7 @@ function App() {
                 <Route path="login" element={<Loginpage />} />
                 <Route path="register" element={<Loginpage />} />
                 <Route path="*" element={<PageNotFound />} />
+                
                 <Route element={<RequireAuth />}>
                     <Route path="reportanumber" element={<ReportaNumberpage />} />
                     <Route path="blog" element={<Blog />} />

@@ -2,10 +2,13 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import LoginModal from './LoginComponent/LoginModal';
 import useAuth from '../hooks/useAuth';
+import ProfileDropdown from './ProfileComponent/ProfileDropdown';
 
 function Header() {
     const [IsOpen, setIsOpen] = useState(false);
     const [IsLogin, setIsLogin] = useState(true);
+
+    const [showProfile, setShowProfile] = useState(false);
 
     const [logIn, setLogin] = useState();
     const isLogin = (status) => {
@@ -41,7 +44,24 @@ function Header() {
 
                     <div className="header_info">
                         {auth.isSignedIn ? (
-                            <p>Loginned</p>
+                            <>
+                                <div className="header_info_notification">
+                                    <figure>
+                                        <img src="images/icons/notif.png" alt="" />
+                                    </figure>
+                                </div>
+                                <div className="profile_img">
+                                    <div
+                                        className={showProfile ? 'profile_img_holder showProfile' : 'profile_img_holder'}
+                                        onClick={() => setShowProfile(!showProfile)}
+                                    >
+                                        <figure>
+                                            <img src="images/rhy2.png" alt="" />
+                                        </figure>
+                                    </div>
+                                </div>
+                                {showProfile && <ProfileDropdown />}
+                            </>
                         ) : (
                             <>
                                 <button className="btn btn-transparent" onClick={() => isLogin(true)}>
