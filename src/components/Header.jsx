@@ -47,7 +47,7 @@ function Header() {
                             <>
                                 <div className="header_info_notification">
                                     <figure>
-                                        <img src="images/icons/notif.png" alt="" />
+                                        <img src="images/icons/notif.svg" alt="" />
                                     </figure>
                                 </div>
                                 <div className="profile_img">

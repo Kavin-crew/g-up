@@ -2,8 +2,8 @@ import './scss/main.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Categories from './pages/Categories';
+import Admin from './pages/Admin';
 import Blog from './pages/Blog';
-import Loginpage from './pages/Loginpage';
 import PageNotFound from './components/PageNotFound';
 import ReportaNumberpage from './pages/ReportaNumberpage';
 import Header from './components/Header';
@@ -22,13 +22,12 @@ function App() {
             <Routes>
                 <Route index element={<Homepage setSearchNumber={setSearchNumber} />} />
                 <Route path="search" element={<Categories setSearchNumber={setSearchNumber} searchNumber={searchNumber} />} />
-                <Route path="login" element={<Loginpage />} />
-                <Route path="register" element={<Loginpage />} />
                 <Route path="*" element={<PageNotFound />} />
-                
+
                 <Route element={<RequireAuth />}>
                     <Route path="reportanumber" element={<ReportaNumberpage />} />
                     <Route path="blog" element={<Blog />} />
+                    <Route path="dashboard" element={<Admin />} />
                 </Route>
             </Routes>
 
