@@ -21,12 +21,15 @@ function App() {
             <Header />
             <Routes>
                 <Route index element={<Homepage setSearchNumber={setSearchNumber} />} />
-                <Route path="search" element={<Categories setSearchNumber={setSearchNumber} searchNumber={searchNumber} />} />
                 <Route path="*" element={<PageNotFound />} />
 
-                <Route element={<RequireAuth />}>
+                <Route element={<RequireAuth allowed="user" />}>
                     <Route path="reportanumber" element={<ReportaNumberpage />} />
                     <Route path="blog" element={<Blog />} />
+                </Route>
+
+                <Route element={<RequireAuth allowed="admin" />}>
+                    <Route path="search" element={<Categories setSearchNumber={setSearchNumber} searchNumber={searchNumber} />} />
                     <Route path="dashboard" element={<Admin />} />
                 </Route>
             </Routes>
